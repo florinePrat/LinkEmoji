@@ -22,13 +22,12 @@ $(document).on("click",".intercom-emoji-picker-emoji",function(e){
 
 });
 
-/*$('.intercom-composer-popover-input').on('input', function() {
+$(document).on('input',".intercom-composer-popover-input", function() {
     var query = this.value;
-    console.log("search perfromed");
     if(query != ""){
         $(".intercom-emoji-picker-emoji:not([title*='"+query+"'])").hide();
     }
     else{
         $(".intercom-emoji-picker-emoji").show();
     }
-});*/
+});
