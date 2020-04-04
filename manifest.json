@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "LinkedIn Comment Emoji Picker",
+  "description": "Add emoji on LinkedIn comments and posts with this simple emoji picker chrome extension",
+  "version": "0.1.0",
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "<all_urls>",
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [ {
+    "css": [ "main.css" ],
+    "js": ["./node_modules/jquery/dist/jquery.min.js","main.js","picker.js"],
+    "matches": [ "https://www.linkedin.com/*" ]
+  }],
+  "browser_action": {
+    "default_icon" : "128.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128" : "128.png"
+  }
+}
