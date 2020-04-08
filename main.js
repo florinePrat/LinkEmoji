@@ -26,6 +26,16 @@ function addPickerComment(urn){
     }
 }
 
+function addPickerCommentsComment(urn){
+    let element = $("[data-id='"+urn+"']");
+    let piker = element[0].getElementsByClassName("chat-input-tool");
+    if(!piker.length){
+        let elementsCom = element[0].getElementsByClassName("comments-comment-texteditor");
+        elementsCom[0].insertAdjacentHTML('beforeend', htmlPicker);
+    }
+}
+
+
 $(document).on("click",".share-box__open",function(e){
     addPickerPost()
 });
@@ -35,7 +45,13 @@ $(document).on("click",".artdeco-button__text",function(e){
     addPickerComment(urn)
 });
 
+$(document).on("click",".comments-comment-social-bar__reply-action-button",function(e){
+    let urn = $(this).parent().parent().parent().parent().parent().parent().data('id');
+    addPickerCommentsComment(urn)
+});
+
+
 let elementsCom = document.getElementsByClassName("comments-comment-texteditor");
 for(let i=0;i<elementsCom.length;i++){
-    elementsCom[0].insertAdjacentHTML('beforeend', htmlPicker);
+    elementsCom[i].insertAdjacentHTML('beforeend', htmlPicker);
 }
