@@ -4,10 +4,7 @@
   "description": "Add emoji on LinkedIn comments and posts with this simple emoji picker chrome extension",
   "version": "0.0.3",
   "permissions": [
-    "http://*/*",
-    "https://*/*",
-    "tabs",
-    "<all_urls>"
+    "https://www.linkedin.com/*"
   ],
   "background": {
     "scripts": ["background.js"],

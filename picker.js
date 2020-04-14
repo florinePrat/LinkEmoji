@@ -12,8 +12,12 @@ $(document).click(function (e) {
 
 $(document).on("click",".intercom-emoji-picker-emoji",function(e){
 
-
+    $(".share-box__text-editor").children().children().children().children().children().attr('data-artdeco-is-focused', true);
+    e.stopPropagation();
     $(".share-box__text-editor").children().children().children().children().children().append($(this).html());
+
+    //e.stopPropagation();
+    //$(".share-box__text-editor").children().children().children().children().children().append($(this).html());
 
     let urn = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().data('urn');
     let id = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().data('id');
@@ -24,7 +28,7 @@ $(document).on("click",".intercom-emoji-picker-emoji",function(e){
     if(element[0]!==undefined){
         let elementsCom = element[0].getElementsByClassName("comments-comment-box-comment__text-editor");
         $(elementsCom[0]).children().children().children().children().children().append($(this).html());
-    }else{
+    }else if(elementComment[0]!==undefined){
         let elementsComComment = elementComment[0].getElementsByClassName("comments-comment-box-comment__text-editor");
         $(elementsComComment[0]).children().children().children().children().children().append($(this).html());
     }

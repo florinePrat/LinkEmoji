@@ -10,29 +10,36 @@ htmlPicker =
 
 
 function addPickerPost(){
-    let elements = document.getElementsByClassName("share-box-media-upload display-flex align-items-center flex-1");
+    $(".share-box-media-upload").ready(function () {
+        let elements = document.getElementsByClassName("share-box-media-upload display-flex align-items-center flex-1");
 
-    if(elements[0]!==undefined){
-        elements[0].insertAdjacentHTML('beforeend', htmlPicker);
-    }
+        if(elements[0]!==undefined){
+            elements[0].insertAdjacentHTML('beforeend', htmlPicker);
+        }
+    });
+
 }
 
 function addPickerComment(urn){
-    let element = $("[data-urn='"+urn+"']");
-    let piker = element[0].getElementsByClassName("chat-input-tool");
-    if(!piker.length){
-        let elementsCom = element[0].getElementsByClassName("comments-comment-texteditor");
-        elementsCom[0].insertAdjacentHTML('beforeend', htmlPicker);
-    }
+    $("[data-urn='"+urn+"']").ready(function () {
+        let element = $("[data-urn='"+urn+"']");
+        let piker = element[0].getElementsByClassName("chat-input-tool");
+        if(!piker.length){
+            let elementsCom = element[0].getElementsByClassName("comments-comment-texteditor");
+            elementsCom[0].insertAdjacentHTML('beforeend', htmlPicker);
+        }
+    });
 }
 
 function addPickerCommentsComment(urn){
-    let element = $("[data-id='"+urn+"']");
-    let piker = element[0].getElementsByClassName("chat-input-tool");
-    if(!piker.length){
-        let elementsCom = element[0].getElementsByClassName("comments-comment-texteditor");
-        elementsCom[0].insertAdjacentHTML('beforeend', htmlPicker);
-    }
+    $("[data-id='"+urn+"']").ready(function () {
+        let element = $("[data-id='"+urn+"']");
+        let piker = element[0].getElementsByClassName("chat-input-tool");
+        if(!piker.length){
+            let elementsCom = element[0].getElementsByClassName("comments-comment-texteditor");
+            elementsCom[0].insertAdjacentHTML('beforeend', htmlPicker);
+        }
+    });
 }
 
 
@@ -51,7 +58,9 @@ $(document).on("click",".comments-comment-social-bar__reply-action-button",funct
 });
 
 
-let elementsCom = document.getElementsByClassName("comments-comment-texteditor");
-for(let i=0;i<elementsCom.length;i++){
-    elementsCom[i].insertAdjacentHTML('beforeend', htmlPicker);
-}
+$(".comments-comment-texteditor").ready(function () {
+    let elementsCom = document.getElementsByClassName("comments-comment-texteditor");
+    for(let i=0;i<elementsCom.length;i++){
+        elementsCom[i].insertAdjacentHTML('beforeend', htmlPicker);
+    }
+});
